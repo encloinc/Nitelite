@@ -1,0 +1,1 @@
+This are where snapshots are stored

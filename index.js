@@ -14,7 +14,7 @@ const { exec } = require('child_process');
 const config = JSON.parse(
 	fs.readFileSync(
 
-		'./config/config.json',
+		path.join(__dirname, '/config/config.json'),
 		 'utf8'
 	)
 );
@@ -23,7 +23,7 @@ const tree = JSON.parse(
 
 	fs.readFileSync(
 
-		'./config/tree.json',
+		path.join(__dirname, '/config/tree.json'),
 		'utf8'
 	)
 );
@@ -42,7 +42,7 @@ function waitForThreshold(threshold, time, timesRepeatedAllowed){
 			let interval = setInterval(function(){
 
 				//Save screenshot of window to pass to tesseract
-				screenshot.saveScreenshot(config.launcher.topLeft.x, config.launcher.topLeft.y, config.launcher.width, config.launcher.height, './tmp/snapshot.png', function(err){
+				screenshot.saveScreenshot(config.launcher.topLeft.x, config.launcher.topLeft.y, config.launcher.width, config.launcher.height, path.join(__dirname, './tmp/snapshot.png'), function(err){
 	    			
 					/*
 					Option 12 of tesseract which instructs to find as many word possible in no order (In this case desirable since the page status is measured by the amount
@@ -51,7 +51,7 @@ function waitForThreshold(threshold, time, timesRepeatedAllowed){
 
 	    			var options = {
 				   		psm: 12,
-				   		binary: path.join(__dirname, "utils/bin/tesseract.exe")
+				   		binary: path.join(__dirname, "./utils/bin/tesseract.exe")
 					};
 
 					//Instantiates tesseract from snapshot.png
@@ -101,7 +101,7 @@ function type(parent, name, string, callback){
 	}
 
 
-	exec(`node ./lib/robotjswrapper.js -t 1 -s ${string} -x ${pos.x} -y ${pos.y}`, (error, stdout, stderr) => {
+	exec(`node ${path.join(__dirname, './lib/robotjswrapper.js ')} -t 1 -s ${string} -x ${pos.x} -y ${pos.y}`, (error, stdout, stderr) => {
 		if (error) {
 			return callback(false);
 
@@ -120,7 +120,7 @@ function click(parent, name, callback){
 	}
 
 
-	exec(`node ./lib/robotjswrapper.js -t 2 -s null -x ${pos.x} -y ${pos.y}`, (error, stdout, stderr) => {
+	exec(`node ${path.join(__dirname, './lib/robotjswrapper.js ')} -t 2 -s null -x ${pos.x} -y ${pos.y}`, (error, stdout, stderr) => {
 		if (error) {
 			return callback(false)
 
@@ -178,11 +178,11 @@ class signInWindow {
 		this.callback = __callback;
 
 		if(!(this.ignore)){
-			this.signin(this.callback);
+			this.signin(this.email, this.password, this.callback);
 		}
 	}
 
-	signin(callback){
+	signin(email, password, callback){
 
 		if (this.parent.screen != this.name){
 			throw 'LauncherError: Cannot call methods from unfocused windows'
@@ -192,10 +192,10 @@ class signInWindow {
 		//Calls robot wrapper to type the email
 		const __this = this;
 
-		type(__this.parent, 'email_input_box', __this.email, function(state){
+		type(__this.parent, 'email_input_box', email, function(state){
 			
 			//Calls robot wrapper to type the password
-			type(__this.parent, 'password_input_box', __this.password, function(state){
+			type(__this.parent, 'password_input_box', password, function(state){
 
 				//Clicks signin button to instantiate signin
 				click(__this.parent, 'signin_button', function(state){
@@ -510,8 +510,13 @@ class friendsWindow {
 			}else{
 
 				//If unable to load the window, return false
+				let temp = new addFriendsWindow(__this.parent, '', '', true, null);
 				
-				return callback({state: false})
+				addFriendsWindow.close(function(e){
+					return callback({state: false})
+
+				})
+
 				}
 		
 		});

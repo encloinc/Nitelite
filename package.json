@@ -1,11 +1,11 @@
 {
   "name": "nitelite",
-  "version": "1.0.0",
-  "description": "Get names from group",
+  "version": "1.0.5",
+  "description": "Nitelite is an Epic Games Launcher and a Fortnite automation tool",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "node ./utils/installTesseract.js",
+    "install": "node utils/installTesseract.js",
     "start": "node index.js"
   },
   "author": "Enclo",
@@ -17,6 +17,10 @@
     "node-tesseract-ocr-fixed": "^1.0.0",
     "node-uuid": "^1.4.8",
     "robotjs": "^0.5.1",
-    "screenshot-node": "^1.2.1",
+    "screenshot-node": "^1.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/encloinc/Nitelite.git"
   }
 }

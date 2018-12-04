@@ -1,0 +1,1 @@
+This is where tessdata is stored (tessdata contains thins such as the tesseract language prefixes)
