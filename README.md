@@ -24,7 +24,7 @@ const launcher = new Nitelite();
 ///This will sign you in to epic games
 launcher.signin('your-email','your-password', function(e){
   if (!e.state){
-    e.authenticationWindow.insertcode('your-auth-code-if-prompted', function(){
+    e.authenticationWindow.insertcode('your-auth-code-if-prompted', function(e){
       if (e.state){console.log("signed in")}
     })
   }else{
