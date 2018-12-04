@@ -38,8 +38,8 @@ launcher.signin('your-email','your-password', function(e){
 ### Docs
 
 #### State object
-`stateObj.state: (Boolean) returns if the operation was completed sucessfully or not`
-`stateObj.whatever-window-it-opened: returns the window object from what it opened`
+* `stateObj.state: (Boolean) returns if the operation was completed sucessfully or not`
+* `stateObj.whatever-window-it-opened: returns the window object from what it opened`
 
 #### Launcher object
 ### Methods
