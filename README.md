@@ -42,10 +42,12 @@ launcher.signin('your-email','your-password', function(e){
 * `stateObj.whatever-window-it-opened: returns the window object from what it opened`
 
 #### Launcher object
-### Methods
+#### Methods
 `signin(email, password, callback)`
 * email: (String) your epic games email
 * password: (String) your epic games password
-* callback:(Function) returns state object
+* callback:(Function) returns state object ->
+* if stateObj.state is true the second key will return a mainWindowLauncher object which you can access by stateObj.mainWindowLauncher
+* if stateObj.state is false the second key will return a authenticationWindow object which you can access stateObj.authenticationWindow
  
  
