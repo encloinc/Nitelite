@@ -85,6 +85,7 @@ launcher.signin('your-email','your-password', function(e){
 
 
 #### friendsWindow object
+##### Methods
 `openAddFriendsWindow(callback)`
 * callback:(Function) returns state object ->
 * `if stateObj.state is true the second key will return a addFriendsWindow object which you can access by stateObj.addFriends`
@@ -95,6 +96,7 @@ launcher.signin('your-email','your-password', function(e){
 * `stateObj.state will always be true and second key will always be a mainWindowLauncher object`
 
 #### addFriendsWindow object
+##### Methods
 `addFriend(friend, callback)`
 * friend: (string) sends a friend request
 * callback:(Function) returns state object ->
