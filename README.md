@@ -42,7 +42,7 @@ launcher.signin('your-email','your-password', function(e){
 * `stateObj.whatever-window-it-opened: returns the window object from what it opened`
 
 #### Launcher object
-#### Methods
+##### Methods
 `signin(email, password, callback)`
 * email: (String) your epic games email
 * password: (String) your epic games password
@@ -50,7 +50,18 @@ launcher.signin('your-email','your-password', function(e){
 * `if stateObj.state is true the second key will return a mainWindowLauncher object which you can access by stateObj.mainWindowLauncher`
 * `if stateObj.state is false the second key will return a authenticationWindow object which you can access stateObj.authenticationWindow`
  
+
+#### signInWindow  object
+##### Methods
+`signin(email, password, callback)`
+* email: (String) your epic games email
+* password: (String) your epic games password
+* callback:(Function) returns state object ->
+* `if stateObj.state is true the second key will return a mainWindowLauncher object which you can access by stateObj.mainWindowLauncher`
+* `if stateObj.state is false the second key will return a authenticationWindow object which you can access stateObj.authenticationWindow`
+
 #### authenticationWindow object
+##### Methods
 `insertCode(code, callback)`
 * code: (String) your epic games auth code (its up to you to get this if you use 2fa)
 * callback:(Function) returns state object ->
@@ -58,6 +69,38 @@ launcher.signin('your-email','your-password', function(e){
 * `if stateObj.state is false there will be no second key
 
 `close(callback)`
-* code: (String) your epic games auth code (its up to you to get this if you use 2fa)
 * callback:(Function) returns state object ->
 * `stateObj.state will always be true and second key will always be a signInWindow object`
+
+#### mainWindowLauncher object
+##### Methods
+`openFriendsWindow(callback)`
+* callback:(Function) returns state object ->
+* `stateObj.state will always be true and second key will always be a friendsWindow object`
+
+`signout(callback)`
+* callback:(Function) returns state object ->
+* `if stateObj.state is true the second key will return a signInWindow object which you can access by stateObj.signInWindow`
+* `if stateObj.state is false there will be no second key`
+
+
+#### friendsWindow object
+`openAddFriendsWindow(callback)`
+* callback:(Function) returns state object ->
+* `if stateObj.state is true the second key will return a addFriendsWindow object which you can access by stateObj.addFriends`
+* `if stateObj.state is false there will be no second key`
+
+`close(callback)`
+* callback:(Function) returns state object ->
+* `stateObj.state will always be true and second key will always be a mainWindowLauncher object`
+
+#### addFriendsWindow object
+`addFriend(friend, callback)`
+* friend: (string) sends a friend request
+* callback:(Function) returns state object ->
+* `stateObj.state will always be true and there will be no second key`
+
+`close(callback)`
+* callback:(Function) returns state object ->
+* `stateObj.state will always be true and second key will always be a friendsWindow object`
+
