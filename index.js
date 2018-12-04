@@ -178,11 +178,11 @@ class signInWindow {
 		this.callback = __callback;
 
 		if(!(this.ignore)){
-			this.signin(this.callback);
+			this.signin(this.email, this.password, this.callback);
 		}
 	}
 
-	signin(callback){
+	signin(email, password, callback){
 
 		if (this.parent.screen != this.name){
 			throw 'LauncherError: Cannot call methods from unfocused windows'
@@ -192,10 +192,10 @@ class signInWindow {
 		//Calls robot wrapper to type the email
 		const __this = this;
 
-		type(__this.parent, 'email_input_box', __this.email, function(state){
+		type(__this.parent, 'email_input_box', email, function(state){
 			
 			//Calls robot wrapper to type the password
-			type(__this.parent, 'password_input_box', __this.password, function(state){
+			type(__this.parent, 'password_input_box', password, function(state){
 
 				//Clicks signin button to instantiate signin
 				click(__this.parent, 'signin_button', function(state){
@@ -510,8 +510,13 @@ class friendsWindow {
 			}else{
 
 				//If unable to load the window, return false
+				let temp = new addFriendsWindow(__this.parent, '', '', true, null);
 				
-				return callback({state: false})
+				addFriendsWindow.close(function(e){
+					return callback({state: false})
+
+				})
+
 				}
 		
 		});
