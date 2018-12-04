@@ -7,7 +7,7 @@ Nitelite is an Epic Games Launcher and a Fortnite automation tool. This is the i
 
 ### Awesome! How do I set it up
 Setup is extremley simple! First install the library by using
-##### `npm install --save Nitelite`
+##### `npm install --save nitelite`
 then navigate to the library directory (node_modules/Nitelite), go to utils and run setup.js. It will prompt you to open the Epic Games launcher and alt+click on your
 * Epicgames launcer top left and bottom right corners
 * Friends window top left and bottom right corners
