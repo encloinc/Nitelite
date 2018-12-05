@@ -1,6 +1,6 @@
 {
   "name": "nitelite",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Nitelite is an Epic Games Launcher and a Fortnite automation tool",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "adm-zip": "^0.4.13",
+    "ini": "^1.3.5",
     "iohook": "^0.2.5",
     "minimist": "^1.2.0",
+    "node-screenshot": "^0.1.1",
     "node-tesseract-ocr-fixed": "^1.0.0",
     "node-uuid": "^1.4.8",
     "robotjs": "^0.5.1",

@@ -7,26 +7,16 @@ const fs = require('fs')
 const screenshot = require('screenshot-node');
 const tesseract = require('node-tesseract-ocr-fixed');
 const { exec } = require('child_process');
+const setup = require(path.join(__dirname, './lib/setup.js'))
 
 
 //Global Variables
 
-const config = JSON.parse(
-	fs.readFileSync(
+const rawObject = setup.setup()
 
-		path.join(__dirname, '/config/config.json'),
-		 'utf8'
-	)
-);
+const config = rawObject.config;
 
-const tree = JSON.parse(
-
-	fs.readFileSync(
-
-		path.join(__dirname, '/config/tree.json'),
-		'utf8'
-	)
-);
+const tree = rawObject.tree;
 
 
 
@@ -138,7 +128,7 @@ class Launcher {
 
 
 		if(config[0] == false){
-			throw new Error(`\n\nHello! Please setup configurations by running "setup.js" in the:\n\n "node_modules/nitelite/utils" \n\n folder, please report any issues in the github repository :D\n\n`);
+			throw new Error(`This is an error. Errors are bad. Please report this error on the github repository and tell us how to reproduce it: 1`);
 
 		}else{
 

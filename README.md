@@ -66,7 +66,12 @@ launcher.signin('your-email','your-password', function(e){
 * code: (String) your epic games auth code (its up to you to get this if you use 2fa)
 * callback:(Function) returns state object ->
 * `if stateObj.state is true the second key will return a mainWindowLauncher object which you can access by stateObj.mainWindowLauncher`
+<<<<<<< HEAD
 * `if stateObj.state is false there will be no second key`
+=======
+* `if stateObj.state is false there will be no second key
+
+>>>>>>> aa51d752de83d7a6be9be683dc25faed2f46d273
 `close(callback)`
 * callback:(Function) returns state object ->
 * `stateObj.state will always be true and second key will always be a signInWindow object`
