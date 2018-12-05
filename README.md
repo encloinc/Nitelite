@@ -8,14 +8,13 @@ Nitelite is an Epic Games Launcher and a Fortnite automation tool. This is the i
 ### Awesome! How do I set it up
 Setup is extremley simple! First install the library by using
 ##### `npm install --save nitelite`
-then navigate to the library directory (node_modules/Nitelite), go to utils and run setup.js. It will prompt you to open the Epic Games launcher and alt+click on your
-* Epicgames launcer top left and bottom right corners
-* Friends window top left and bottom right corners
-* Add Friends window top left and bottom right corners
-* Fortnites top left and bottom right corners
-Once those are done it will prompt you to close fortnite and logout of the Epic Games launcer (do not close it, Nitelite will not work unless it has an unaltered window (by that I mean you havent changed its size or position which you described in setup.js), its logged out and the epic games launcher is open. The epic games launcher also has to be the focused window as Nitelite will control the system mouse to login/logout of the launcher).
+
+Once the installation is done, close everything and open the epic games launcher. Signout and youre good to go! (The epic games launcher has to be completley visible and on the signin screen for nitelite to work properly.) Note: If you move a window or resize something signout, close the epic games launcher and open it again. Everything will be configured to the new window sizes now.
+
+#### This library only works on windows!
 
 ## This uses the Beta Launcher, please opt-in to the beta launcher
+
 
 ```js
 ///Example
