@@ -70,7 +70,6 @@ launcher.signin('your-email','your-password', function(e){
 =======
 * `if stateObj.state is false there will be no second key
 
->>>>>>> aa51d752de83d7a6be9be683dc25faed2f46d273
 `close(callback)`
 * callback:(Function) returns state object ->
 * `stateObj.state will always be true and second key will always be a signInWindow object`
